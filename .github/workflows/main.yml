@@ -1,0 +1,22 @@
+name: manual-wf
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  pull-requests: write
+  contents: write
+  repository-projects: write
+jobs:
+  display_files:
+    name: job name display file content
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+        
+      - name: display file content
+        run: |
+          echo "manual run"
+        shell: bash
